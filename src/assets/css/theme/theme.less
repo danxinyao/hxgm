@@ -1,0 +1,140 @@
+@import "../variables";
+
+
+/*
+ * #### 配色表
+ */
+
+// Color
+@primary-color: #d7b791; // 主色调
+// @primary-color: #000; // 主色调
+@title-color: #000000; // 标题颜色
+@text-color: #8b8b8b; // 文字颜色
+@disable-color: #cccccc; // 辅助文字颜色
+@white-color: #ffffff; // 白色文字颜色
+@success-color: #09bb07; // 成功文字颜色
+@warning-color: #ff3b30; // 警告文字颜色
+
+@disable-bg-color: #cccccc; // 辅助背景色
+@bg-color: #ffffff; // 默认背景色
+@bg-color-base: #f5f5f5; // 基础背景色
+
+@border-radius: 10/@rate; // 圆角
+@cricle-border-radius: 45/@rate; // 大圆角
+
+@login-bg-color: #000000; // 登录页背景色
+@modal-bg-color: #e5e5e5; // 弹出框背景色
+@line-border-color: #e6e6e6; // 分割线
+.primary-color {
+	color: @primary-color;
+}
+.title-color {
+	color: @title-color;
+}
+.title-border-color {
+    border-color: @title-color;
+}
+.text-color {
+	color: @text-color;
+}
+.disable-color {
+	color: @disable-color;
+}
+.disable-bg-color {
+    background-color: @disable-color;
+}
+.disable-border-color {
+    border-color: @disable-color;
+}
+.white-color {
+	color: @white-color;
+}
+.white-bg-color {
+    color: @white-color;
+}
+.success-color {
+	color: @success-color;
+}
+.success-bg-color {
+    background-color: @success-color;
+}
+.warning-color {
+	color: @warning-color;
+}
+.warning-bg-color {
+    background-color: @warning-color;
+}
+.primary-bg-color {
+	background-color: @primary-color;
+}
+.primary-border-color {
+    border-color: @primary-color;
+}
+.bg-color {
+	background-color: @bg-color;
+}
+.bg-color-base {
+	background-color: @bg-color-base;
+}
+.border-radius {
+	border-radius: @border-radius;
+}
+.cricle-border-radius {
+	border-radius: @cricle-border-radius;
+}
+.login-bg-color {
+	background: @login-bg-color;
+}
+.login-border-color {
+	border-color: @white-color;
+}
+.modal-bg-color {
+    background-color: @modal-bg-color;
+}
+.line-border-color {
+    border-color: @line-border-color;
+}
+
+// 按钮颜色
+.pg-btn {
+    &.disabled {
+        background: @disable-bg-color;
+    }
+}
+
+// 手势密码
+.gesturepsw {
+    .patt-circ {
+        border-color: @primary-color;
+     }
+    .patt-circ.hovered .patt-big-dots {
+        background: @primary-color;
+    }
+    .patt-error .patt-circ.hovered .patt-big-dots {
+        background: @warning-color;
+    }
+    .patt-success .patt-circ.hovered .patt-big-dots {
+        background: @success-color;
+    }
+    .patt-error .patt-circ.hovered .patt-dots {
+        background: @warning-color;
+    }
+    .patt-success .patt-circ.hovered .patt-dots {
+        background: @success-color;
+    }
+    .patt-dots {
+        background: @primary-color;
+    }
+    .patt-circ.hovered .patt-dots {
+        background: @primary-color;
+    }
+    .patt-success .patt-lines {
+        background: @success-color;
+    }
+    .patt-error .patt-lines {
+        background: @warning-color;
+    }
+    .patt-lines {
+    	background: @primary-color;
+    }
+}

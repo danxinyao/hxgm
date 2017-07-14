@@ -1,0 +1,251 @@
+@base: 750;
+@rate: @base/100*10rem; //px转rem的转化率
+@basePadding: 30/@rate; //页边距
+
+
+//px to  rem
+.pxToRem(@name,@px,@base:750) {
+    @{name}: @px/(@base/100*10) * 1rem;
+}
+
+//根据不同的屏幕制定不同的字体大小
+.px2px(@name, @px) {
+    @{name}: round(@px / 2) * 1px;
+    [data-dpr="2"] & {
+            @{name}: @px * 1px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+            @{name}: round(@px * 2.5 / 2) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+            @{name}: round(@px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+            @{name}: round(@px / 2 * 3) * 1px
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+            @{name}: @px * 2px;
+    }
+}
+
+//多行文本截断
+.lineClamp(@line:1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical;
+
+}
+
+.button(@width:100%,@height:100,@color:'',@activeColor:#fff,@disableColor:#fff,@fontSize:32,@background: '',@activeBackground: '',@disableBackground:#dddddd,@border: '',@activeBorder:none,@disableBorder:none,@borderRadius:0) {
+    display: inline-block;
+    width: @width;
+    height: @height/@rate;
+    text-align: center;
+    line-height: @height/@rate;
+    color: @color;
+    .px2px(font-size, @fontSize);
+    background: @background;
+    border: @border;
+    border-radius: @borderRadius/@rate;
+    &:active {
+        background: @activeBackground;
+        color: @activeColor;
+        border: @activeBorder;
+    }
+    &.disable {
+        background: @disableBackground;
+        color: @disableColor;
+        border: @disableColor;
+    }
+}
+//可伸缩的button
+.buttonFlex(@paddingVertical:20,@paddingHorizon:20,@color: '',@activeColor:#fff,@disableColor:#fff,@fontSize:28,@background: '',@activeBackground: '',@disableBackground:#dddddd,@border: '',@activeBorder:none,@disableBorder:none,@borderRadius:10) {
+    display: inline-block;
+    padding: @paddingVertical/@rate @paddingHorizon/@rate;
+    color: @color;
+    .px2px(font-size,@fontSize);
+    background: @background;
+    border: @border;
+    border-radius: @borderRadius/@rate;
+    text-align: center;
+    &:active {
+        background: @activeBackground;
+        color: @activeColor;
+        border: @activeBorder;
+    }
+    &.disable {
+        background: @disableBackground;
+        color: @disableColor;
+        border: @disableColor;
+    }
+}
+
+//border
+.border-top-bottom(@width:1px;@line:solid;@color:#ddd;) {
+    border-top: @arguments;
+    border-bottom: @arguments;
+}
+
+.border-top-left(@width:1px;@line:solid;@color:#ddd;) {
+    border-top: @arguments;
+    border-left: @arguments;
+}
+
+.border-top-right(@width:1px;@line:solid;@color:#ddd;) {
+    border-top: @arguments;
+    border-right: @arguments;
+}
+
+.border-bottom-left(@width:1px;@line:solid;@color:#ddd;) {
+    border-bottom: @arguments;
+    border-left: @arguments;
+}
+
+.border-bottom-right(@width:1px;@line:solid;@color:#ddd;) {
+    border-bottom: @arguments;
+    border-right: @arguments;
+}
+
+.border-left-right(@width:1px;@line:solid;@color:#ddd;) {
+    border-left: @arguments;
+    border-right: @arguments;
+}
+
+.border-top-right-bottom(@width:1px;@line:solid;@color:#ddd;) {
+    border-top: @arguments;
+    border-bottom: @arguments;
+    border-right: @arguments;
+}
+
+.border-top-right-left(@width:1px;@line:solid;@color:#ddd;) {
+    border-top: @arguments;
+    border-left: @arguments;
+    border-right: @arguments;
+}
+
+.border-top-bottom-left(@width:1px;@line:solid;@color:#ddd;) {
+    border-top: @arguments;
+    border-left: @arguments;
+    border-bottom: @arguments;
+}
+
+.border-right-bottom-left(@width:1px;@line:solid;@color:#ddd;) {
+    border-right: @arguments;
+    border-bottom: @arguments;
+    border-left: @arguments;
+}
+
+//padding
+.padding-top-bottom(@length:30;) {
+    padding-top: @length/@rate;
+    padding-bottom: @length/@rate;
+}
+
+.padding-top-left(@length:30;) {
+    padding-top: @length/@rate;
+    padding-left: @length/@rate;
+}
+
+.padding-top-right(@length:30;) {
+    padding-top: @length/@rate;
+    padding-right: @length/@rate;
+}
+
+.padding-bottom-left(@length:30;) {
+    padding-bottom: @length/@rate;
+    padding-left: @length/@rate;
+}
+
+.padding-bottom-right(@length:30;) {
+    padding-bottom: @length/@rate;
+    padding-right: @length/@rate;
+}
+
+.padding-left-right(@length:30;) {
+    padding-left: @length/@rate;
+    padding-right: @length/@rate;
+}
+
+.padding-top-right-bottom(@length:30;) {
+    padding-top: @length/@rate;
+    padding-bottom: @length/@rate;
+    padding-right: @length/@rate;
+}
+
+.padding-top-right-left(@length:30;) {
+    padding-top: @length/@rate;
+    padding-left: @length/@rate;
+    padding-right: @length/@rate;
+}
+
+.padding-top-bottom-left(@length:30;) {
+    padding-top: @length/@rate;
+    padding-left: @length/@rate;
+    padding-bottom: @length/@rate;
+}
+
+.padding-right-bottom-left(@length:30;) {
+    padding-right: @length/@rate;
+    padding-bottom: @length/@rate;
+    padding-left: @length/@rate;
+}
+
+//margin
+.margin-top-bottom(@length:30;) {
+    margin-top: @length/@rate;
+    margin-bottom: @length/@rate;
+}
+
+.margin-top-left(@length:30;) {
+    margin-top: @length/@rate;
+    margin-left: @length/@rate;
+}
+
+.margin-top-right(@length:30;) {
+    margin-top: @length/@rate;
+    margin-right: @length/@rate;
+}
+
+.margin-bottom-left(@length:30;) {
+    margin-bottom: @length/@rate;
+    margin-left: @length/@rate;
+}
+
+.margin-bottom-right(@length:30;) {
+    margin-bottom: @length/@rate;
+    margin-right: @length/@rate;
+}
+
+.margin-left-right(@length:30;) {
+    margin-left: @length/@rate;
+    margin-right: @length/@rate;
+}
+
+.margin-top-right-bottom(@length:30;) {
+    margin-top: @length/@rate;
+    margin-bottom: @length/@rate;
+    margin-right: @length/@rate;
+}
+
+.margin-top-right-left(@length:30;) {
+    margin-top: @length/@rate;
+    margin-left: @length/@rate;
+    margin-right: @length/@rate;
+}
+
+.margin-top-bottom-left(@length:30;) {
+    margin-top: @length/@rate;
+    margin-left: @length/@rate;
+    margin-bottom: @length/@rate;
+}
+
+.margin-right-bottom-left(@length:30;) {
+    margin-right: @length/@rate;
+    margin-bottom: @length/@rate;
+    margin-left: @length/@rate;
+}

@@ -1,0 +1,360 @@
+@import "./variables";
+
+/*
+ * #### 公共样式
+ */
+body{
+    text-align: center;
+}
+
+/*
+ * #### 最外层Div容器的设置
+ */
+#app {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 50%;
+    margin-left: -750/2/@rate;
+    .pxToRem(width, 750);
+    height: 100%;
+    overflow: hidden;
+}
+
+/*
+ * #### 每个页面的内容部分最外层Div容器
+ * 1、只在views中的页面内容最外层
+ */
+.main {
+    z-index: -2;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    transition: filter .5s;
+    &.top_0 {
+        top: 0;
+    }
+    &.top_20 {
+        top: 20/@rate;
+    }
+    &.top_88 {
+        top: 86/@rate;
+    }
+    &.top_108 {
+        top: 108/@rate;
+    }
+    &.bottom_0 {
+        bottom: 0;
+    }
+    &.bottom_20 {
+        bottom: 20/@rate;
+    }
+    &.padding-top_20 {
+        padding-top: 20/@rate;
+    }
+    &.padding-bottom_20 {
+        padding-bottom: 20/@rate;
+    }
+    &.bottom_10 {
+        bottom: 10/@rate;
+    }
+    &.bottom_100 {
+        bottom: 100/@rate;
+    }
+    &.bottom_120 {
+        bottom: 120/@rate;
+    }
+}
+
+.filter {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+}
+.none_filter {
+    filter: blur(0)
+}
+
+.font_110 {
+    .px2px(font-size, 110)
+}
+.font_60 {
+    .px2px(font-size, 60)
+}
+.font_42 {
+    .px2px(font-size, 42)
+}
+.font_38 {
+    .px2px(font-size, 38)
+}
+.font_36 {
+    .px2px(font-size, 36)
+}
+.font_30 {
+    .px2px(font-size, 30)
+}
+.font_28 {
+    .px2px(font-size, 28)
+}
+.font_26 {
+    .px2px(font-size, 26)
+}
+.font_24 {
+    .px2px(font-size, 24)
+}
+.font_22 {
+    .px2px(font-size, 22)
+}
+.font_20 {
+    .px2px(font-size, 20)
+}
+
+/*
+ * #### 清除浮动
+ */
+.clearfix {
+    &:after {
+        clear: both;
+        content: '.';
+        display: block;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+}
+
+// 表单
+.pg-form {
+    &.border {
+        .item:not(:last-child) {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+    }
+    .item {
+        position: relative;
+        text-align: left;
+        .left-icon {
+            position: absolute;
+            .px2px(font-size, 42);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .left-icon + input {
+            padding-left: 72/@rate;
+        }
+        input {
+            box-sizing: border-box;
+            height: 75/@rate;
+            width: 100%;
+            .px2px(font-size, 28);
+        }
+        .title {
+            padding-left: 72/@rate;
+            display: inline-block;
+            height: 42/@rate;
+            line-height: 42/@rate;
+            .px2px(font-size, 28);
+        }
+        &.right {
+            input {
+                padding-right: 210/@rate;
+            }
+            .pg-btn {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &:last-child {
+            margin-top: 50/@rate;
+        }
+    }
+    &.big {
+        padding: 0 90/@rate;
+        .item {
+            &:not(:last-child) {
+                margin-top: 40/@rate;
+                height: 120/@rate;
+                line-height: 120/@rate;
+                padding: 0 45/@rate;
+            }
+        }
+    }
+    &.small {
+        padding-left: 30/@rate;
+        .item {
+            &:not(:last-child) {
+                margin-top: 22/@rate;
+                padding: 20/@rate 30/@rate 20/@rate 15/@rate;
+            }
+        }
+    }
+}
+
+// 按钮
+.pg-btn {
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 10/@rate;
+    &.disabled {
+        cursor: not-allowed;
+    }
+    &.default {
+        min-width: 120/@rate;
+        padding: 0 10/@rate;
+        height: 70/@rate;
+        line-height: 70/@rate;
+        .px2px(font-size, 28);
+    }
+    &.small {
+        
+    }
+    &.big {
+        display: block;
+        width: 100%;
+        height: 90/@rate;
+        line-height: 90/@rate;
+        .px2px(font-size, 38);
+    }
+    &.no-radius {
+        border-radius: 0;
+    }
+    &.circle {
+        border-radius: 45/@rate;
+    }
+    &.border {
+        border-style: solid;
+        border-width: 1px;
+    }
+}
+
+// 下拉列表样式
+.pg-select {
+    display: inline-block;
+    width: 100%;
+    height: 70/@rate;
+    line-height: 70/@rate;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    select {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        width: 100%;
+        background: none;
+        height: 70/@rate;
+        border: 0 none;
+        padding: 0 20/@rate;
+    }
+    &:after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        right: 20/@rate;
+        margin-top: -10/@rate;
+        width: 0;
+        height: 0;
+        border-top-width: 20/@rate;
+        border-left-width: 12/@rate;
+        border-right-width: 12/@rate;
+        border-style: solid;
+        border-color: #ccc transparent transparent transparent;
+        line-height: 0;
+    }
+    &:not(:last-child) {
+        margin-right: 20/@rate;
+    }
+}
+
+// 商品列表
+.pg-goods {
+    li {
+        padding: 30/@rate;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+    &_cover {
+        float: left;
+        width: 160/@rate;
+        height: 160/@rate;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    &_info {
+        margin-left: 180/@rate;
+        text-align: left;
+        .time, .size, .amount {
+            padding-top: 20/@rate;
+        }
+        .num {
+            float: right;
+        }
+    }
+}
+
+// banner滚动栏样式
+.swiper-container {
+    height: 100%;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-pagination {
+        .swiper-pagination-bullet {
+            width: 15/@rate;
+            height: 15/@rate;
+        }
+        .swiper-pagination-bullet-active {
+            background: #fff;
+        }
+    }
+}
+
+/*
+ * #### 横向等比分割
+ */
+.flex-ul {
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+}
+
+.flex-ul li {
+    cursor: pointer;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; 
+    text-align: center;
+}
+
+.flex-ul.b_l li:last-child {
+    border-left-style: solid;
+    border-left-width: 1px;
+}
